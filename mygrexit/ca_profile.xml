@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+  <Icon>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/mygrexit/images/avatar.png</Icon>
+  <Profile>
+    Small open source tools for my own homelab, published under the MIT license.
+  </Profile>
+</Maintainer>

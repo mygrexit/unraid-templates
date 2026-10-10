@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+    Small self-hosted tools I build for my own homelab and publish under the MIT license.
+    Each application is open source; support is handled through the GitHub issue tracker of the matching project.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/images/avatar.png</Icon>
+  <WebPage>https://github.com/mygrexit/unraid-templates</WebPage>
+</CommunityApplications>

@@ -13,11 +13,10 @@
   <Overview>Activates every pending coupon in your PAYBACK account once a day, using a headless Chromium and the cookies of a browser session you export yourself. It never types your password and never solves or bypasses bot checks - when a person is needed, it stops and notifies you (Pushover, Telegram, ntfy, Gotify, ... via shoutrrr).&#13;&#13;SETUP: log in at payback.de in your desktop browser, export the cookies with the "Cookie-Editor" extension (Export - JSON) and save them as cookies.json inside the data folder of this container. The file grants full access to your PAYBACK account - treat it like a password (chmod 600). Without it the container keeps running and reports "session expired".&#13;&#13;There is no web interface; the status is in the container log. Notifications are sent when the session expires, a bot check appears, the page layout changed, or coupons could not be activated.&#13;&#13;Unofficial project, not affiliated with PAYBACK GmbH. It drives the payback.de website, which can change at any time. Use at your own risk and check PAYBACK's terms of use.</Overview>
   <Category>Tools:Utilities</Category>
   <WebUI/>
-  <TemplateURL>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/mygrexit/payback-coupon-activator.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/mygrexit/images/payback-coupon-activator.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/templates/payback-coupon-activator.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/images/payback-coupon-activator.png</Icon>
   <ExtraParams>--init --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges:true --user 99:100</ExtraParams>
-  <PostArgs/>
-  <CPUset/>
+  <License>MIT</License>
   <DonateText/>
   <DonateLink/>
   <Requires>A cookies.json exported from a logged-in payback.de browser session, placed in the data folder.</Requires>

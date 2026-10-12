@@ -10,7 +10,30 @@
   <Support>https://github.com/mygrexit/payback-coupon-activator/issues</Support>
   <Project>https://github.com/mygrexit/payback-coupon-activator</Project>
   <ReadMe>https://github.com/mygrexit/payback-coupon-activator#readme</ReadMe>
-  <Overview>Activates every pending coupon in your PAYBACK account once a day, using a headless Chromium and the cookies of a browser session you export yourself. It never types your password and never solves or bypasses bot checks - when a person is needed, it stops and notifies you (Pushover, Telegram, ntfy, Gotify, ... via shoutrrr).&#13;&#13;SETUP: log in at payback.de in your desktop browser, export the cookies with the "Cookie-Editor" extension (Export - JSON) and save them as cookies.json inside the data folder of this container. The file grants full access to your PAYBACK account - treat it like a password (chmod 600). Without it the container keeps running and reports "session expired".&#13;&#13;There is no web interface; the status is in the container log. Notifications are sent when the session expires, a bot check appears, the page layout changed, or coupons could not be activated.&#13;&#13;Unofficial project, not affiliated with PAYBACK GmbH. It drives the payback.de website, which can change at any time. Use at your own risk and check PAYBACK's terms of use.</Overview>
+  <Overview>Activates every pending coupon in your PAYBACK account once or several times a day, using headless Chromium and the cookies of a browser session you export yourself.
+
+It never types your password and never solves or bypasses bot checks. When a person is needed, it stops and notifies you (Pushover, Telegram, ntfy, Gotify, ... via shoutrrr).
+
+**Setup**
+1. Log in at payback.de in your desktop browser.
+2. Export the cookies with the "Cookie-Editor" extension (Export - JSON).
+3. Save them as cookies.json in the data folder of this container.
+
+The cookie file grants full access to your PAYBACK account. Treat it like a password. Without it the container keeps running and reports "session expired".
+
+**Notifications**
+There is no web interface; the status is in the container log. You get a notification when the session expires, a bot check appears, the page layout changed or coupons could not be activated.
+
+**Disclaimer**
+Unofficial project, not affiliated with PAYBACK GmbH. It drives the payback.de website, which can change at any time. Use at your own risk and check PAYBACK's terms of use.</Overview>
+  <Changes>
+### 0.2.0 (2026-10-12)
+- Several run times per day: RUN_AT accepts a comma-separated list, e.g. 04:00,12:00,19:00
+- Clearer formatting of this description
+
+### 0.1.0 (2026-10-10)
+- First release
+</Changes>
   <Category>Tools:Utilities</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/mygrexit/unraid-templates/main/templates/payback-coupon-activator.xml</TemplateURL>
@@ -21,11 +44,11 @@
   <DonateLink/>
   <Requires>A cookies.json exported from a logged-in payback.de browser session, placed in the data folder.</Requires>
   <Config Name="Data folder (cookies.json)" Target="/data" Default="/mnt/user/appdata/payback-coupon-activator" Mode="rw" Description="Holds cookies.json. Refreshed cookies are written back to this file after successful runs." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/payback-coupon-activator</Config>
-  <Config Name="Daily run time (RUN_AT)" Target="RUN_AT" Default="04:00" Mode="" Description="Daily run time as HH:MM (24h). DST-aware." Type="Variable" Display="always" Required="false" Mask="false">04:00</Config>
+  <Config Name="Run time(s) (RUN_AT)" Target="RUN_AT" Default="04:00" Mode="" Description="Daily run time as HH:MM (24h). Several times separated by commas, e.g. 04:00,12:00,19:00. DST-aware." Type="Variable" Display="always" Required="false" Mask="false">04:00</Config>
   <Config Name="Notification URL (NOTIFY_URL)" Target="NOTIFY_URL" Default="" Mode="" Description="shoutrrr URL, e.g. ntfy://ntfy.sh/YOUR_TOPIC, pushover://shoutrrr:APP_TOKEN@USER_KEY or telegram://BOT_TOKEN@telegram?chats=CHAT_ID. Empty disables notifications." Type="Variable" Display="always" Required="false" Mask="true"/>
   <Config Name="Notify on success too" Target="NOTIFY_ON_SUCCESS" Default="false" Mode="" Description="true also notifies after successful runs; default reports problems only." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
   <Config Name="Run once on start" Target="RUN_ON_START" Default="true" Mode="" Description="true runs one cycle right after the container starts." Type="Variable" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Time zone" Target="TZ" Default="Europe/Berlin" Mode="" Description="Time zone used for the daily run time." Type="Variable" Display="always" Required="false" Mask="false">Europe/Berlin</Config>
+  <Config Name="Time zone" Target="TZ" Default="Europe/Berlin" Mode="" Description="Time zone used for the run times." Type="Variable" Display="always" Required="false" Mask="false">Europe/Berlin</Config>
   <Config Name="Browser user agent" Target="BROWSER_USER_AGENT" Default="" Mode="" Description="User-Agent of the browser the cookies came from (Firefox: about:support, Chrome: chrome://version). Helps when the session is bound to that browser." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Log level" Target="LOG_LEVEL" Default="info" Mode="" Description="debug, info, warn or error." Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
   <Config Name="Cookie file inside container" Target="COOKIES_FILE" Default="/data/cookies.json" Mode="" Description="Path of the cookie file inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">/data/cookies.json</Config>

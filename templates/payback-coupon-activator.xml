@@ -27,7 +27,7 @@ There is no web interface; the status is in the container log. You get a notific
 **Disclaimer**
 Unofficial project, not affiliated with PAYBACK GmbH. It drives the payback.de website, which can change at any time. Use at your own risk and check PAYBACK's terms of use.</Overview>
   <Changes>
-### 0.3.0
+### 0.3.0 (2026-10-26)
 - New option NOTIFY_FAILED_ABOVE: only notify when more than this many coupons could not be activated in a run, e.g. 10. Errors are always reported.
 
 ### 0.2.0 (2026-10-12)
